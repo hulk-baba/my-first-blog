@@ -3,7 +3,7 @@ from django.shortcuts import render, get_object_or_404 ,redirect
 from .models import Post, Comment
 
 from django.utils import timezone
-from .forms import PostForm, CommentForm
+from .forms import PostForm, CommentForm 
 from django.contrib.auth.decorators import login_required
 
 
@@ -88,3 +88,9 @@ def comment_remove(request, pk):
     post_pk = comment.post.pk
     comment.delete()
     return redirect('blog.views.post_detail', pk=post_pk)
+
+def about(request):
+	return render(request, 'blog/about.html',)
+
+def contact(request):
+	return render(request, 'blog/contact.html',)
